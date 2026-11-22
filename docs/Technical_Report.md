@@ -2,7 +2,7 @@
 
 **Course:** AI Fundamentals — Final Project (Topic 02)
 **Team:** Nisanbaev Madiyar · Altynbekuly Temirlan · Temirtasov Sultankhan · Baizhanov Esmankhan
-**Repository:** `<add GitHub link>`
+**Repository:** https://github.com/lawrensesqq/campus-delivery-robot
 
 ---
 
