@@ -1,0 +1,94 @@
+
+================================================================
+CAMPUS MAP   S=dorm  G=library  #=wall  C=corridor (sensor)
+================================================================
+   S . # . .
+   . . # . .
+   . . # . .
+   . . # # #
+   . . C . G
+
+================================================================
+STEP 1 - A* route planning (h = Manhattan distance)
+================================================================
+   step | expand  |  g  h  f
+      1 | (0, 0)  |  0  8  8
+      2 | (0, 1)  |  1  7  8
+      3 | (1, 0)  |  1  7  8
+      4 | (1, 1)  |  2  6  8
+      5 | (2, 0)  |  2  6  8
+      6 | (2, 1)  |  3  5  8
+      7 | (3, 0)  |  3  5  8
+      8 | (3, 1)  |  4  4  8
+      9 | (4, 0)  |  4  4  8
+     10 | (4, 1)  |  5  3  8
+     11 | (4, 2)  |  6  2  8
+     12 | (4, 3)  |  7  1  8
+     13 | (4, 4)  |  8  0  8
+
+   Route (8 moves, 13 nodes expanded):
+   (0, 0) -> (0, 1) -> (1, 1) -> (2, 1) -> (3, 1) -> (4, 1) -> (4, 2) -> (4, 3) -> (4, 4)
+   S * # . .
+   . * # . .
+   . * # . .
+   . * # # #
+   . * * * G
+   Route passes the corridor (4, 2): True
+
+   Is there a detour if the corridor is blocked?
+   A* with corridor removed -> no path found
+   => the robot cannot reroute, it must decide: Move through or Wait.
+
+================================================================
+MDP SETUP - value iteration (Q-values used in step 3)
+================================================================
+   Iteration 1 (V0 = 0, so Q = immediate reward R):
+     Q(Clear  ,Move) =   10.00   Q(Clear  ,Wait) =   -2.00
+     Q(Blocked,Move) =  -20.00   Q(Blocked,Wait) =   -1.00
+   Converged after 109 iterations (gamma = 0.9):
+     V(Clear  ) =   86.44   Q(Move) =   86.44   Q(Wait) =   74.44   -> best: Move
+     V(Blocked) =   71.37   Q(Move) =   46.94   Q(Wait) =   71.37   -> best: Wait
+   Break-even belief: Move is better only if P(Blocked) < 0.329
+
+================================================================
+SCENARIO: corridor sensor reports 'alert'
+================================================================
+[STEP 2 - Bayesian update]
+   observation           : alert
+   P(z | Obstacle)       = 0.90
+   P(z | Free)           = 0.20
+   P(z | Obs) * P(Obs)   = 0.90 * 0.20 = 0.1800
+   P(z | Free) * P(Free) = 0.20 * 0.80 = 0.1600
+   P(z) (evidence)       = 0.3400
+   P(Obstacle | z)       = 0.1800 / 0.3400 = 0.529
+
+[STEP 3 - MDP decision with belief P(Blocked) = 0.529]
+   E[Q(Move)] = 0.529 *   46.94 + 0.471 *   86.44 =   65.53
+   E[Q(Wait)] = 0.529 *   71.37 + 0.471 *   74.44 =   72.81
+
+>>> Robot at (4, 1) next to corridor (4, 2): WAIT
+
+================================================================
+SCENARIO: corridor sensor reports 'no_alert'
+================================================================
+[STEP 2 - Bayesian update]
+   observation           : no_alert
+   P(z | Obstacle)       = 0.10
+   P(z | Free)           = 0.80
+   P(z | Obs) * P(Obs)   = 0.10 * 0.20 = 0.0200
+   P(z | Free) * P(Free) = 0.80 * 0.80 = 0.6400
+   P(z) (evidence)       = 0.6600
+   P(Obstacle | z)       = 0.0200 / 0.6600 = 0.030
+
+[STEP 3 - MDP decision with belief P(Blocked) = 0.030]
+   E[Q(Move)] = 0.030 *   46.94 + 0.970 *   86.44 =   85.24
+   E[Q(Wait)] = 0.030 *   71.37 + 0.970 *   74.44 =   74.34
+
+>>> Robot at (4, 1) next to corridor (4, 2): MOVE
+
+================================================================
+SUMMARY
+================================================================
+   Route            : 8 moves via corridor (4, 2)
+   Sensor alert    : P(obstacle) = 0.529 -> Wait
+   Sensor no_alert : P(obstacle) = 0.030 -> Move
