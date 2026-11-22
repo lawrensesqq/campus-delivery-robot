@@ -3,15 +3,11 @@
 **Project:** Mini Campus Delivery Robot — AI Fundamentals Final Project (Topic 02)
 **Team:** Nisanbaev Madiyar · Altynbekuly Temirlan · Temirtasov Sultankhan · Baizhanov Esmankhan
 
-> ⚠️ **Team: please check and edit this file before submitting.** It must describe what really happened.
-> Section 1 is for the original version of the project (submitted 10 November). Only you know how it was made.
-> Section 2 describes the AI assistance used to prepare the remaining deliverables. It was filled in by that assistant and is accurate.
-
 ## 1. Original project (`campus_robot.py`, `README.md`, `sample_output.txt`)
 
-- AI tools used: `<none / name of tool, e.g. ChatGPT, Claude, Copilot>`
-- What they were used for: `<e.g. explaining value iteration, debugging, nothing>`
-- Written by the team without AI: `<e.g. problem design, map, choice of algorithms and parameters, code>`
+- AI tools used: Claude (Anthropic)
+- What they were used for: table templates, learning and writing the code, explaining value iteration
+- Written by the team without AI: problem design, campus map, choice of algorithms and parameters
 
 ## 2. Additional deliverables (prepared on 22 November)
 
@@ -33,7 +29,14 @@ code. They were also checked by hand. The test suite (37 tests) passes.
 
 ## 4. Statement
 
-We understand every algorithm in this project and can explain and modify the code ourselves.
-AI tools were used as assistants. The team is responsible for the final submission.
+We understand algorithms in this project and can explain and modify the code ourselves.
+AI tools were used as assistants.
 
-Signed: `<names>`  Date: `<date>`
+**Signed:**
+
+1. Nisanbaev Madiyar
+2. Altynbekuly Temirlan
+3. Temirtasov Sultankhan
+4. Baizhanov Esmankhan
+
+**Date:** 22.11.2026
