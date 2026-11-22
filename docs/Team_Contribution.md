@@ -2,9 +2,6 @@
 
 **Project:** Mini Campus Delivery Robot — AI Fundamentals Final Project (Topic 02)
 
-> ⚠️ **Team: this is a template.** The split below is only a suggestion based on the project's structure.
-> Replace it with who actually did what before you submit.
-
 | Member | Main responsibility | Specific contributions | Share |
 |---|---|---|---|
 | Nisanbaev Madiyar | Problem design and integration | `<e.g. campus map and scenario, connecting A* → Bayes → MDP, README>` | `<25%>` |
@@ -16,9 +13,8 @@
 
 We confirm that this statement is accurate and that every member can explain the whole project.
 
-| Member | Signature | Date |
-|---|---|---|
-| Nisanbaev Madiyar | | |
-| Altynbekuly Temirlan | | |
-| Temirtasov Sultankhan | | |
-| Baizhanov Esmankhan | | |
+| Member |
+| Nisanbaev Madiyar | 
+| Altynbekuly Temirlan |
+| Temirtasov Sultankhan |
+| Baizhanov Esmankhan | 
