@@ -16,11 +16,11 @@
 | Deliverable | AI contribution | Team responsibility |
 |---|---|---|
 | `campus_robot.py` changes | Added optional parameters (`verbose`, `trace`, sensor and MDP parameters), input validation, a BFS baseline and sequential Bayes updates. The algorithms and console output are unchanged | Review and understand the changes |
-| `app.py` (Streamlit UI) | Written by the AI | Test it, understand it, present it |
+| `app.py` (Streamlit UI) | AI helped to create the structure of the code | Test it, understand it, present it |
 | `tests/` | Written by the AI | Run and understand the tests |
 | `docs/Technical_Report.md` | Drafted by the AI from the original README and code | Review, correct and personalise |
 | Slides, demo video script | Drafted by the AI | Review. Record the video yourselves |
-| `docs/Team_Contribution.md` | Template only | Fill in honestly |
+| `docs/Team_Contribution.md` | Template only | Filled in honestly |
 
 ## 3. Verification
 
