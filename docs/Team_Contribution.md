@@ -4,12 +4,12 @@
 
 | Member | Main responsibility | Specific contributions | Share |
 |---|---|---|---|
-| Nisanbaev Madiyar | Problem design and integration | `<e.g. campus map and scenario, connecting A* → Bayes → MDP, README>` | `<25%>` |
-| Altynbekuly Temirlan | A\* search | `<e.g. a_star(), heuristic, path reconstruction, A* tests>` | `<25%>` |
-| Temirtasov Sultankhan | Bayesian inference | `<e.g. sensor model, bayes_update(), Bayes tests, sensitivity analysis>` | `<25%>` |
-| Baizhanov Esmankhan | MDP / value iteration | `<e.g. reward and transition design, value_iteration(), decide(), break-even>` | `<25%>` |
+| Nisanbaev Madiyar | A\* search | connecting A* → Bayes → MDP, README | 25% |
+| Altynbekuly Temirlan | Bayesian inference | heuristic, path reconstruction, A* tests | 25% |
+| Temirtasov Sultankhan | Problem design and integration | sensor model, bayes_update(), Bayes tests | 25% |
+| Baizhanov Esmankhan | MDP / value iteration | reward and transition design, value_iteration()| 25% |
 
-**Shared work:** `<e.g. UI testing, report review, slides, demo video recording>`
+**Shared work:** UI testing, report review, slides, demo video recording
 
 We confirm that this statement is accurate and that every member can explain the whole project.
 
